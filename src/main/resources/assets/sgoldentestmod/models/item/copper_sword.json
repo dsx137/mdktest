@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "sgoldentestmod:item/combat/copper_sword"
+  }
+}

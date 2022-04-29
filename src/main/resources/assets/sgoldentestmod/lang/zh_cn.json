@@ -1,0 +1,18 @@
+{
+  "enchantment.sgoldentestmod.autofish": "自动钓鱼",
+  "enchantment.sgoldentestmod.explosion": "爆炸",
+  "enchantment.sgoldentestmod.vampire": "吸血",
+  "item.sgoldentestmod.cooked_egg": "熟鸡蛋",
+  "item.sgoldentestmod.copper_axe": "铜斧",
+  "item.sgoldentestmod.copper_boots": "铜靴子",
+  "item.sgoldentestmod.copper_chestplate": "铜胸甲",
+  "item.sgoldentestmod.copper_helmet": "铜头盔",
+  "item.sgoldentestmod.copper_hoe": "铜锄",
+  "item.sgoldentestmod.copper_leggings": "铜护腿",
+  "item.sgoldentestmod.copper_pickaxe": "铜镐",
+  "item.sgoldentestmod.copper_shovel": "铜锹",
+  "item.sgoldentestmod.copper_sword": "铜剑",
+  "item.sgoldentestmod.dirt_ball": "Hello World",
+  "item.sgoldentestmod.multi_add_item": "你一定要幸福啊",
+  "itemGroup.SgoldenTestMod": "测试模组"
+}

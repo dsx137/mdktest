@@ -1,0 +1,29 @@
+package sgolden.module.newm.item;
+
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.CreativeModeTab;
+import sgolden.module.newm.creativetab.TabSgoldentestmod;
+
+import static sgolden.module.newm.item.MultiTabItemTypes.MItem;
+
+public class ItemCookedEgg extends MItem
+{
+
+    public ItemCookedEgg() {
+        super(GetProperties());
+        this.setRegistryName("cooked_egg");
+        tabReg(CreativeModeTab.TAB_SEARCH).tabReg(CreativeModeTab.TAB_FOOD);
+    }
+
+    public static Properties GetProperties()
+    {
+        FoodProperties foodProperties = new FoodProperties.Builder()
+                .nutrition(3)
+                .saturationMod(0.8F)
+                .build();
+        return new Properties()
+                .food(foodProperties)
+                .tab(TabSgoldentestmod.TAB_SGOLDENTESTMOD)
+                .stacksTo(16);
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x x",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "sgoldentestmod:copper_chestplate"
+  }
+}
