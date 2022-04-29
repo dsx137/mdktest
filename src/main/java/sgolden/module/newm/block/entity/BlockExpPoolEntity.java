@@ -3,6 +3,9 @@ package sgolden.module.newm.block.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -11,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import static net.minecraft.world.level.block.Block.UPDATE_CLIENTS;
 import static sgolden.module.newm.util.RegistryCollections.BlockCollection.BLOCK_EXP_POOL;
 import static sgolden.module.newm.util.RegistryCollections.BlockEntityTypeCollection.BLOCK_EXP_POOL_ENTITY_TYPE;
 import static sgolden.module.newm.util.RegistryCollections.BlockEntityTypeCollection.RegistryBlockEntities;
@@ -37,6 +41,7 @@ public class BlockExpPoolEntity extends BlockEntity
     public int use(Player player) {
         counter++;
         setChanged();
+        sync();
         showMessage(player);
         return counter;
     }
@@ -44,6 +49,18 @@ public class BlockExpPoolEntity extends BlockEntity
     public void showMessage(Player player)
     {
         player.sendMessage(new TextComponent(String.valueOf(counter)), player.getUUID());
+    }
+
+    public void sync()
+    {
+        if (!level.isClientSide)
+            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), UPDATE_CLIENTS);
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        // Will get tag from #getUpdateTag
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @NotNull
