@@ -28,20 +28,19 @@ public class BlockExpPoolEntity extends BlockEntity
         counter = 0;
     }
 
-    public static BlockEntityType<?> BuildEntityType()
+    public static BlockEntityType<BlockExpPoolEntity> BuildEntityType()
     {
         BlockEntityType<?> entityType = BlockEntityType.Builder
                 .of(BlockExpPoolEntity::new, BLOCK_EXP_POOL)
                 .build(null)
                 .setRegistryName("exp_pool");
         RegistryBlockEntities.add(entityType);
-        return entityType;
+        return (BlockEntityType<BlockExpPoolEntity>) entityType;
     }
 
     public int use(Player player) {
         counter++;
-        setChanged();
-        sync();
+        update();
         showMessage(player);
         return counter;
     }
@@ -51,10 +50,27 @@ public class BlockExpPoolEntity extends BlockEntity
         player.sendMessage(new TextComponent(String.valueOf(counter)), player.getUUID());
     }
 
+    public void update()
+    {
+        setChanged();
+        sync();
+    }
+
     public void sync()
     {
         if (!level.isClientSide)
             level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), UPDATE_CLIENTS);
+    }
+
+    public int getCounter()
+    {
+        return counter;
+    }
+
+    public int setCounter(int num)
+    {
+        counter = num;
+        return counter;
     }
 
     @Override

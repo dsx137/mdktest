@@ -9,5 +9,5 @@ import java.util.List;
 public class BlockEntityTypeCollection
 {
     public static final List<BlockEntityType<?>> RegistryBlockEntities = new ArrayList<>();
-    public static final BlockEntityType<?> BLOCK_EXP_POOL_ENTITY_TYPE = BlockExpPoolEntity.BuildEntityType();
+    public static final BlockEntityType<BlockExpPoolEntity> BLOCK_EXP_POOL_ENTITY_TYPE = BlockExpPoolEntity.BuildEntityType();
 }

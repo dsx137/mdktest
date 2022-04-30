@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "sgoldentestmod:block/exp_pool"
+      }
+    ]
+  }
+}
