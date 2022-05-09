@@ -2,9 +2,13 @@ package sgolden.module.newm.item;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import sgolden.module.newm.creativetab.TabSgoldentestmod;
 
+import java.util.List;
+
 import static sgolden.module.newm.item.MultiTabItemTypes.MItem;
+import static sgolden.module.newm.util.RegistryCollections.ItemCollection.TAB_ADD_MITEM;
 
 public class ItemCookedEgg extends MItem
 {
